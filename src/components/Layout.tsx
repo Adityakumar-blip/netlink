@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="flex h-screen bg-background">
       {!isMobile && <Sidebar />}
 
-      <div className="flex-1 flex flex-col overflow-scroll">
+      <div className="flex-1 flex flex-col overflow-y-scroll overflow-x-hidden">
         {" "}
         <Navbar />
         {children}

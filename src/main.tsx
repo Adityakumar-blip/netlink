@@ -8,8 +8,9 @@ createRoot(document.getElementById("root")!).render(
     domain="dev-v4p41ffonul6v5wm.us.auth0.com"
     clientId="WKA7j5dztn2s4S8v2KafqzgtaYI0fO5G"
     authorizationParams={{
-      redirect_uri: window.location.origin,
+      redirect_uri: window.location.origin + "/welcome",
     }}
+    cacheLocation="localstorage"
   >
     <App />
   </Auth0Provider>

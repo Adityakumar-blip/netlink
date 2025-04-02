@@ -7,17 +7,10 @@ import { AuthProvider } from "@/context/AuthContext";
 import AuthGuard from "@/components/AuthGuard";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
-import Dashboard from "./pages/Dashboard";
-import Users from "./pages/Users";
-import Subscriptions from "./pages/Subscriptions";
-import Settings from "./pages/Settings";
-import NotFound from "./pages/NotFound";
-import AdminUsers from "./pages/AdminUsers";
-import ManageSubscription from "./pages/ManageSubscription";
-import OfferAndCoupons from "./pages/OfferAndCoupons";
-import Profile from "./pages/Profile";
 import Welcome from "./pages/Welcome";
 import BeneficiaryValidationForm from "./pages/Benificiary";
+import ComingSoonPage from "./pages/ComingSoon";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -29,92 +22,93 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<BeneficiaryValidationForm />} />
+            <Route path="/" element={<Index />} />
 
             {/* Protected routes */}
-            <Route
-              path="/dashboard"
-              element={
-                // <AuthGuard>
-                <Layout>
-                  <Welcome />
-                </Layout>
-                // </AuthGuard>
-              }
-            />
 
             <Route
-              path="/admin-users"
+              path="/welcome"
               element={
                 <AuthGuard>
                   <Layout>
-                    <AdminUsers />
+                    <Welcome />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/users"
+              path="/benificiary-validation"
               element={
                 <AuthGuard>
                   <Layout>
-                    <Users />
+                    <BeneficiaryValidationForm />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/offers"
+              path="/data-provider"
               element={
                 <AuthGuard>
                   <Layout>
-                    <OfferAndCoupons />
+                    <ComingSoonPage />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/profile"
+              path="/account-format"
               element={
                 <AuthGuard>
                   <Layout>
-                    <Profile />
+                    <ComingSoonPage />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/manage-subscriptions"
+              path="/financial-institution"
               element={
                 <AuthGuard>
                   <Layout>
-                    <ManageSubscription />
+                    <ComingSoonPage />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/subscriptions"
+              path="/payment-purpose"
               element={
                 <AuthGuard>
                   <Layout>
-                    <Subscriptions />
+                    <ComingSoonPage />
                   </Layout>
                 </AuthGuard>
               }
             />
 
             <Route
-              path="/settings"
+              path="/category-purpose"
               element={
                 <AuthGuard>
                   <Layout>
-                    <Settings />
+                    <ComingSoonPage />
+                  </Layout>
+                </AuthGuard>
+              }
+            />
+
+            <Route
+              path="/payment-instruction"
+              element={
+                <AuthGuard>
+                  <Layout>
+                    <ComingSoonPage />
                   </Layout>
                 </AuthGuard>
               }

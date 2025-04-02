@@ -12,9 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth0();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const navigate = useNavigate();
 
@@ -52,8 +53,8 @@ const Navbar = () => {
         <h1 className="text-xl font-bold">Snip AI Admin</h1>
       </div> */}
 
-      <div className="flex items-center space-x-4">
-        <Button
+      <div className="flex items-center space-x-4 py-2">
+        {/* <Button
           variant="ghost"
           size="icon"
           className="rounded-full"
@@ -64,7 +65,7 @@ const Navbar = () => {
 
         <Button variant="ghost" size="icon" className="rounded-full">
           <Bell size={20} />
-        </Button>
+        </Button> */}
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -89,12 +90,22 @@ const Navbar = () => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => navigate("/profile")}>
+            {/* <DropdownMenuItem onClick={() => navigate("/profile")}>
               <User className="mr-2 h-4 w-4" />
               <span className="hover:cursor-pointer">Profile</span>
+            </DropdownMenuItem> */}
+            {/* <DropdownMenuSeparator /> */}
+            <DropdownMenuItem
+              onClick={() =>
+                logout({
+                  logoutParams: {
+                    returnTo: window.location.origin,
+                  },
+                })
+              }
+            >
+              Log out
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={logout}>Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

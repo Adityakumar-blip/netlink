@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_BASE_API_URL;
+export const BASE_URL = window.env?.REACT_APP_API_BASE_URL;
+
+console.log("base url", BASE_URL);
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

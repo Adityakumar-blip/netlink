@@ -33,18 +33,11 @@ const Index = () => {
     }
   }, []);
 
-  useEffect(() => {
-    // Redirect to dashboard if already authenticated
-    if (isAuthenticated && !isLoading) {
-      navigate("/dashboard");
-    }
-  }, [isAuthenticated, isLoading, navigate]);
-
   const handleLogin = async () => {
     try {
       await loginWithRedirect({
         appState: {
-          returnTo: "/dashboard",
+          returnTo: "/welcome",
         },
       });
     } catch (error) {
@@ -65,7 +58,10 @@ const Index = () => {
       <div className="h-16 border-b border-border px-6 flex items-center justify-between animate-fade-in">
         <img src={logo} className="w-22 h-10" alt="Netlink Logo" />
 
-        <div className="relative overflow-hidden bg-white px-4 py-2 rounded-full group hover:cursor-pointer hover:text-white" onClick={() => handleLogin()}>
+        <div
+          className="relative overflow-hidden bg-white px-4 py-2 rounded-full group hover:cursor-pointer hover:text-white"
+          onClick={() => handleLogin()}
+        >
           <p className="font-semibold relative z-10">Login</p>
           <div className="absolute inset-0 bg-primary transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full"></div>
         </div>
